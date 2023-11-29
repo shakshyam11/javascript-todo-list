@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>rock paper scissors</title>
+</head>
+<body>
+    <p>Rock paper scissors GAME <button id="beginButton" onclick="beginGame();">Let's begin</button> click here to begin</p>
+
+    <button id="rockButton" style="display:none;" onclick="playgame('rock');">rock</button>
+    <button id="paperButton" style="display:none;" onclick="playgame('paper');">paper</button>
+    <button id="scissorsButton" style="display:none;" onclick="playgame('scissors');">scissors</button>
+
+    <button id="resetButton" style="display:none;" onclick="reset();">Restart game</button>
+.
+    <script>
+        let name = localStorage.getItem('name') || undefined; // Retrieve name from localStorage
+
+        const score = JSON.parse(localStorage.getItem('score')) || {
+            wins: 0,
+            losses: 0,
+            ties: 0
+        };
+
+        function beginGame() {
+            name = prompt('Enter your name and the game begins');
+            localStorage.setItem('name', name); // Store name in localStorage
+            document.getElementById('beginButton').style.display = 'none'; // Hide the "Let's begin" button
+            document.getElementById('rockButton').style.display = 'inline'; // Show the game buttons
+            document.getElementById('paperButton').style.display = 'inline';
+            document.getElementById('scissorsButton').style.display = 'inline';
+            document.getElementById('resetButton').style.display = 'inline'; // Show the "Restart Game" button
+        }
+
+        function playgame(playermove) {
+            const computermove = pickComputerMove();
+            let result = '';
+
+            if (playermove === 'scissors') {
+                if (computermove === 'paper') {
+                    result = 'you win';
+                } else if (computermove === 'rock') {
+                    result = 'you lose'
+                } else if (computermove === 'scissors') {
+                    result = 'equel tie';
+                }
+            } else if (playermove === 'rock') {
+                if (computermove === 'rock') {
+                    result = 'equel tie';
+                } else if (computermove === 'paper') {
+                    result = 'you lose';
+                } else if (computermove === 'scissors') {
+                    result = 'you win';
+                }
+            } else if (playermove === 'paper') {
+                if (computermove === 'paper') {
+                    result = 'equel tie';
+                } else if (computermove === 'rock') {
+                    result = 'you lose';
+                } else if (computermove === 'scissors') {
+                    result = 'you lose';
+                }
+            }
+
+            if (result === 'you win') {
+                score.wins += 1;
+            } else if (result === 'you lose') {
+                score.losses += 1;
+            } else if (result === 'equel tie') {
+                score.ties += 1;
+            }
+            localStorage.setItem('name', name);
+            localStorage.setItem('score', JSON.stringify(score));
+
+            alert(`hello dear ${name}
+you picked ::${playermove}. computer picked ${computermove}... ${result}
+wins:${score.wins}, losses :${score.losses}, and ties:${score.ties}`);
+        }
+
+        function reset() {
+            
+
+            score.wins = 0;
+            score.losses = 0;
+            score.ties = 0;
+            localStorage.setItem('name', name);
+            localStorage.removeItem('score');
+            localStorage.removeItem(name);
+
+            document.getElementById('beginButton').style.display = 'inline'; // Show the "Let's begin" button
+            document.getElementById('rockButton').style.display = 'none'; // Hide the game buttons
+            document.getElementById('paperButton').style.display = 'none';
+            document.getElementById('scissorsButton').style.display = 'none';
+            document.getElementById('resetButton').style.display = 'none'; // Hide the "Restart Game" button
+        }
+
+        function pickComputerMove() {
+            const randomNumber = Math.random(0, 1);
+            let computermove = '';
+
+            if (randomNumber >= 0 && randomNumber < 1 / 3) {
+                computermove = 'rock';
+            } else if (randomNumber >= 1 / 3 && randomNumber < 2 / 3) {
+                computermove = 'paper';
+            } else if (randomNumber >= 2 / 3 && randomNumber < 1) {
+                computermove = 'scissors';
+            }
+            return computermove;
+        }
+    </script>
+</body>
+</html>

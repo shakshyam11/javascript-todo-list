@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hospital Records</title>
+<style>
+  /* Your CSS styles here */
+</style>
+</head>
+<body>
+
+<h1>Hospital Records</h1>
+
+<table class="table">
+  <tr>
+    <th>S.N</th>
+    <th>Hospital Name</th>
+    <th>Pharmacy Name</th>
+    <th>Client Name</th>
+    <th>Client Phone Number</th>
+    <th>Call Received Time</th>
+    <th>Problem</th>
+    <th>Solved / Pending</th>
+    <th>Solving Time</th>
+  </tr>
+  <!-- JavaScript will populate data here -->
+</table>
+
+<h2>Add New Record</h2>
+<form id="recordForm">
+  <label for="hospitalName">Hospital Name:</label>
+  <input type="text" id="hospitalName" required><br>
+
+  <label for="pharmacyName">Pharmacy Name:</label>
+  <input type="text" id="pharmacyName" required><br>
+
+  <label for="clientName">Client Name:</label>
+  <input type="text" id="clientName" required><br>
+
+  <label for="clientPhone">Client Phone Number:</label>
+  <input type="tel" id="clientPhone" required><br>
+
+  <label for="callTime">Call Received Time:</label>
+  <input type="time" id="callTime" required><br>
+
+  <label for="problem">Problem:</label>
+  <input type="text" id="problem" required><br>
+
+  <label for="status">Solved / Pending:</label>
+  <select id="status" required>
+    <option value="Solved">Solved</option>
+    <option value="Pending">Pending</option>
+  </select><br>
+
+  <label for="solvingTime">Solving Time:</label>
+  <input type="text" id="solvingTime"><br>
+
+  <button type="button" id="addRecord">Add Record</button>
+</form>
+
+
+<script>
+  const recordForm = document.getElementById('recordForm');
+  const addRecordButton = document.getElementById('addRecord');
+  const table = document.querySelector('table');
+  let recordCount = 1;
+
+  addRecordButton.addEventListener('click', () => {
+    const hospitalName = document.getElementById('hospitalName').value;
+    const pharmacyName = document.getElementById('pharmacyName').value;
+    const clientName = document.getElementById('clientName').value;
+    const clientPhone = document.getElementById('clientPhone').value;
+    const callTime = document.getElementById('callTime').value;
+    const problem = document.getElementById('problem').value;
+    const status = document.getElementById('status').value;
+    const solvingTime = document.getElementById('solvingTime').value;
+
+    const newRow = document.createElement('tr');
+    newRow.innerHTML = `
+      <td>${recordCount}</td>
+      <td>${hospitalName}</td>
+      <td>${pharmacyName}</td>
+      <td>${clientName}</td>
+      <td>${clientPhone}</td>
+      <td>${callTime}</td>
+      <td>${problem}</td>
+      <td>${status}</td>
+      <td>${solvingTime}</td>
+    `;
+
+    table.appendChild(newRow);
+    recordCount++;
+
+    // Clear the form fields
+    recordForm.reset();
+  });
+</script>
+
+
+
+</body>
+</html>

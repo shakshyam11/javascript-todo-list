@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+         
+        <title>rock paper scissors</title>
+    
+    </head>
+    <body>  
+             <p>Rock paper scissors GAME  <button onclick="  player();
+           
+            ">lets begain</button> click here to begin</p>
+           
+          <button onclick="
+            playgame('rock');
+            ">rock</button>
+
+
+          <button  onclick="
+            playgame('paper')
+            ">paper</button>
+
+
+          <button  onclick="
+            playgame('scissors');
+            ">scissors</button>
+
+          <button onclick="
+            reset('name');
+            ">restart game</button>
+        
+      <script>
+            let name = localStorage.getItem('name') ||undefined; // Retrieve name from localStorage
+ 
+            const score = JSON.parse(localStorage.getItem('score'))||{
+                wins: 0,
+                losses :0,
+                ties:0
+              };
+             
+              /*
+            if (!score){
+              score= {
+                wins: 0,
+                losses :0,
+                ties:0
+              };
+             
+            }*/
+            
+            
+            
+       
+          function playgame(playermove)
+          {
+
+              const computermove =  pickComputerMove();
+              let result = '';
+
+
+              if (playermove==='scissors')
+              {   
+                  
+                  if (computermove === 'paper'){
+                  result = 'you win';
+                  }else if(computermove === 'rock'){
+                  result = 'you lose'
+                  }else if (computermove === 'scissors'){
+                  result = 'equel tie';
+                  }
+
+              }else if(playermove==='rock'){
+                
+                if(computermove === 'rock'){
+                  result = 'equel tie';
+                }else if (computermove === 'paper'){
+                  result = 'you lose';
+                }else if (computermove === 'scissors'){
+                  result = 'you win';
+                }
+              }else if(playermove==='paper'){
+                  if(computermove === 'paper'){
+                    result = 'equel tie';
+                  }else if (computermove === 'rock'){
+                    result = 'you lose';
+                  }else if (computermove === 'scissors'){
+                    result = 'you lose';
+                  }
+              }
+
+              
+              
+               
+              if (result ==='you win'){
+                      score.wins +=1;
+                    }else if(result === 'you lose') {
+                      score.losses +=1;
+                    }else if(result === 'equel tie'){
+                      score.ties+= 1;
+              } 
+              localStorage.setItem('name',name);
+              localStorage.setItem('score',JSON.stringify(score));
+
+              alert( `hello dear ${name}
+you picked ::${playermove}. computer picked ${computermove}... ${result}
+wins:${score.wins}, losses :${score.losses},and ties:${score.ties}`);
+           
+        }  
+            function player() {
+                name = prompt('Enter your name and the game begins');
+                localStorage.setItem('name', name); // Store name in localStorage
+            }
+
+              function reset()
+              {
+                name =prompt('enter your name and the GAME begain');
+
+                score.wins = 0;
+                score.losses =0;
+                score.ties=0;  
+                localStorage.setItem('name', name);  
+                
+                localStorage.removeItem('score');
+                localStorage.removeItem(name);
+              }
+
+              function pickComputerMove()
+              {
+                const randomNumber = Math.random(0,1);
+                let computermove ='';
+              
+                if(randomNumber >= 0 && randomNumber < 1/3)
+                {
+                  computermove  ='rock';
+
+                } else if ( randomNumber >= 1/3 && randomNumber < 2 / 3){
+                  computermove  ='paper';
+                } else if ( randomNumber >= 2/3 && randomNumber < 1){
+                  computermove  ='scissors';
+
+                }
+                return computermove;
+                
+              }
+                
+                
+            
+      </script>  
+    
+    </body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+<button onclick="showQuantity( 0)">Show Quantity</button>
+  <button onclick="showQuantity( 1)">Add to Cart</button>
+  <button onclick="showQuantity( 2)">+2</button>
+  <button onclick="showQuantity( 3)">+3</button>
+  <button onclick="showQuantity( 5)">+5</button>
+  <button onclick="showQuantity(-1)">Remove Cart</button>
+  <button onclick="showQuantity(-5)">-5</button>
+  
+  <button onclick="showQuantity('reset')">Reset Cart</button>
+
+  <script>
+      let cartQuantiy = 0;  
+
+      function showQuantity(value) {
+          if (value === 'reset') {
+              cartQuantity = 0;
+              value = 'Cart was reset';
+          } else {
+              cartQuantity += value;// cartqty=cartqty+value
+              if (cartQuantity < 0) {
+                  value = 'You can\'t go further';
+                  cartQuantity = 0;
+              }
+          }
+          console.log(`${value} Cart Quantity: ${cartQuantity}`);
+      }
+
+      const basketball
+  </script>
+
+</body>
+
+</html>

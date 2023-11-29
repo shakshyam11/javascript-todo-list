@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>home | cartQuantity</title>
+    </head>
+    <body>  
+        <button onclick="
+           showquantity('showquantity');
+            ">show quantity
+        </button>
+
+        <button onclick="
+         showquantity('addcart');
+        ">Add to Cart 
+        </button>
+
+
+        <button onclick="
+        showquantity('add2');
+        ">+2
+        </button>
+
+        <button onclick="
+       showquantity('add3');
+        ">+3</button>
+
+        <button onclick="
+                
+        showquantity('add5');
+
+
+        ">+5</button>
+
+        <button onclick="
+       showquantity('minus1');"
+       
+        
+        
+        >RemoveCart</button>
+
+        <button onclick="
+         showquantity('resetcart');
+        "
+        >Reset Cart</button>
+
+
+       
+
+        <script>
+           let cartQuantity =0;
+          function showquantity(amazon)
+          {
+                     if (amazon=='showquantity')
+                    {
+                            cartQuantity = 0;
+                            if(cartQuantity<0){
+                                console.log(`you cant go further`)
+                            }else{
+                                console.log(`cartQuantity : ${cartQuantity}`);
+                            }
+                    }else if (amazon=='addcart'){
+                        cartQuantity+=1;
+                        console.log(`cartQuantity : ${cartQuantity}`);
+                        
+
+                    }else if (amazon=='add2'){
+                        cartQuantity += 2;
+                        console.log(`cartQuantity : ${cartQuantity}`);
+
+
+                    }else if(amazon=='add3'){
+                        cartQuantity += 3;
+                        console.log(`cartQuantity : ${cartQuantity}`);
+                    }else if(amazon=='add5'){
+                        cartQuantity +=5;
+                        console.log(`cartQuantity : ${cartQuantity}`);
+                    }else if (amazon=='minus1'){
+                            cartQuantity -= 1;
+                            if(cartQuantity<0){
+                                console.log(`you cant go further`)
+                            }else{
+                                console.log(`cartQuantity : ${cartQuantity}`);
+                            }
+                    }else if(amazon=='resetcart'){
+                                        cartQuantity = 0;
+                        console.log('cart was reset');
+                        console.log(`cartQuantity : ${cartQuantity}`);
+                    }
+         }
+          
+            
+        </script>
+
+    </body>
+</html>

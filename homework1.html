@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+let age = prompt('Enter your age');
+let holiday = false;
+
+if (isNaN(age)) {
+  alert('Please enter a valid number');
+} else {
+  age = Number(age);
+
+  if (age >= 0 && age <= 6 && !holiday|| age >= 65 && !holiday) {
+    alert('Congratulations!....... You are eligible for a discount.');
+  } else if (holiday) {
+    alert('We cannot give discounts on holidays.');
+  } else {
+    alert('Sorry, you are not eligible for a discount.');
+  }
+}
+  </script>
+</body>
+</html>

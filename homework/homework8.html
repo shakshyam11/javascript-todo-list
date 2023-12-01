@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button class="head" onclick="tails('head');">head</button>
+    <button class="tails" onclick="tails('tails');">tails</button>
+    <p class="youchose"></p> <button class="summit" onclick="name1();">summit</button>
+    <input
+      class="text1"
+      onkeydown="automatic();"
+      placeholder="Entername"
+      type="text"
+    />
+    <p class="copy"></p>
+    <script>
+      function automatic() {
+        if (event.key === "Enter") {
+          name1();
+        }
+      }
+
+      function name1() {
+        const name = document.querySelector(".text1").value;
+        document.querySelector(".copy").innerHTML = `your name is ${name}`;
+      }
+
+      function tails(player) {
+        if (player === "head") {
+          document.querySelector(".youchose").innerHTML = `you chose head`;
+        } else {
+          document.querySelector(".youchose").innerHTML = `you chose tails`;
+        }
+      }
+    </script>
+  </body>
+</html>

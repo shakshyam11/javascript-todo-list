@@ -1,0 +1,108 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .Amazon{
+      font-family: arial;
+      font-size: 15px;
+      padding-top:10px;
+      padding-bottom: 10px;
+      padding-left: 40px;
+      padding-right: 40px;
+      border: none;
+      border-radius: 20px;
+      color: black;
+      background-color: rgb(255, 216, 20);
+
+    }.gaming{
+      font-family: arial;
+      font-size: 15px;
+      padding-top:10px;
+      padding-bottom: 10px;
+      padding-left: 40px;
+      padding-right: 40px;
+      border: none;
+      border-radius: 20px;
+      color: rgb(255, 255, 255);
+      background-color:black;
+      cursor: pointer;
+    }.game1{
+      background-color: rgb(248, 230, 198);
+      color: black;
+    }
+    /* .js-console{
+      font-family: arial;
+      font-size: 15px;
+      padding-top:10px;
+      padding-bottom: 10px;
+      padding-left: 40px;
+      padding-right: 40px;
+      border: none;
+      border-radius: 20px;
+      color: rgb(255, 255, 255);
+      background-color:black;
+      cursor: pointer;
+    }.js-breath{
+      font-family: arial;
+      font-size: 15px;
+      padding-top:10px;
+      padding-bottom: 10px;
+      padding-left: 40px;
+      padding-right: 40px;
+      border: none;
+      border-radius: 20px;
+      color: rgb(255, 255, 255);
+      background-color:black;
+      cursor: pointer;
+    } */
+  </style>
+</head>
+<body>
+  <button class="Amazon">Add to Cart</button>
+  <button onclick="game('gaming');" class="js-gaming gaming" >Gaming</button>
+  <button onclick="game('console');" class="js-console gaming 
+  ">
+    console
+  </button>
+  <button onclick="game('breath');" class="js-breath gaming" >
+    breath
+  </button>
+  <script>
+    let changed = false;
+    function game(move){
+
+    
+    
+    const gaming = document.querySelector('.js-gaming');
+    const breath =document.querySelector('.js-breath');
+    const console = document.querySelector('.js-console');
+    if (move==='gaming'){
+        gaming.classList.add('game1');
+        console.classList.remove('game1');
+        breath.classList.remove('game1');
+        changed=true;
+        
+       
+    }else if (move ==='console'){
+      gaming.classList.remove('game1');
+        console.classList.add('game1');
+        breath.classList.remove('game1');
+        changed=true;
+       
+    }else if(move === 'breath'){
+        breath.classList.add('game1');
+        console.classList.remove('game1');
+        gaming.classList.remove('game1');
+       
+    }
+
+    
+
+  }
+  </script>
+</body>
+</html>

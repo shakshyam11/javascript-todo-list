@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+  .calculator{
+  background-color: rgb(75, 65, 65);
+  border: transparent;
+  width: 100px;
+  height: 100px;
+  border-radius: 50px;
+  margin-right: 10px;
+  cursor: pointer;
+  margin-top: 30px;
+  color: white;
+  font-size: 30PX;
+  padding-left: 10PX;
+  padding-right: 10PX;
+  -webkit-box-shadow: 0 4px 3px 2px rgba(0, 0, 0, 0.2);
+  -webkit-tap-highlight-color: transparent;
+    box-shadow: 0 4px 3px 2px rgba(0, 0, 0, 0.2);
+   
+  } /* Style the focus state for buttons */
+  .calculator:active{
+    opacity: 0.85;
+    -webkit-box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.2);
+  }
+  * {
+    -webkit-tap-highlight-color: transparent;
+}
+  body{
+    background-color: black;
+  color: white;
+  font-family: arial;
+   
+  }.calculator1{
+    background-color: rgb(247, 120, 2);
+  border: transparent;
+  width: 100px;
+  height: 100px;
+  border-radius: 50px;
+  margin-right: 10px;
+  cursor: pointer;
+  margin-top: 30px;
+  margin-left: 10px;
+  color: black;
+  font-size: 30PX;
+  padding-left: 10PX;
+  font-size:40px;
+  
+  }
+  .inputcalculator{
+    margin-bottom: 0px;
+    width: 500px;
+    height: 60px;
+    font-size: 40px;
+    border: none;
+    background-color: transparent;
+    color: white;
+    outline: none;
+    margin-left: 40px;
+  }.text{
+    margin-bottom: 0px;
+    width: 500px;
+    height: 60px;
+    font-size: 40px;
+    border: none;
+    background-color: transparent;
+    color: white;
+    outline: none;
+    margin-left: 40px;
+  }@media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+  [class*="calculator"] {
+    width: 70px;
+  height: 90px;
+  font-size:18px;
+
+  }
+  [class =".calculator"]{
+    width: 60px;
+  height: 60px;
+  font-size: 25px;
+  }
+}
+
+  </style>
+</head>
+<body>
+  <p class="text-js text"></p>
+  <br>
+  <button  onclick="calculator('1');" class="calculator">1</button>
+  <button onclick="calculator('2');"  class="calculator">2</button>
+  <button onclick="calculator('3');"  class="calculator">3</button>
+  <button onclick="calculator('+');"  class="calculator1">+</button>
+  <br>
+  <button onclick="calculator('4');"  class="calculator">4</button>
+  <button onclick="calculator('5');"  class="calculator">5</button>
+  <button onclick="calculator('6');"  class="calculator">6</button>
+  <button onclick="calculator('-');"  class="calculator1">-</button>
+  <br>
+  <button onclick="calculator('7');"  class="calculator">7</button>
+  <button onclick="calculator('8');"  class="calculator">8</button>
+  <button onclick="calculator('9');"  class="calculator">9</button>
+  <button onclick="calculator('*');"  class="calculator1">*</button>
+  <br>
+  <button onclick="calculator('0');"  class="calculator">0</button>
+  <button onclick="calculator('.');"  class="calculator">.</button>
+  <button onclick="calculator('=');"  class="calculator">=</button>
+  <button onclick="calculator('/');"  class="calculator1">/</button>
+  <br>
+  <button onclick="calculator('clear');"  class="calculator">Clear</button>
+  <button onclick="calculator('Bckspace');"  class="calculator">⌫</button>
+  <button onclick="calculator('%');"  class="calculator1">%</button>
+
+ <script>
+     document.addEventListener('keydown', function (event) {
+      if (event.key === '=' || event.key === 'Enter') {
+        calculator('=');
+      } else  {
+        calculator(event.key);
+      }
+    });
+  
+  function calculator(enter){
+      
+    if (enter === '='){
+      document.querySelector('.text-js').innerHTML= eval( document.querySelector('.text-js').innerHTML);
+      return;
+         }
+
+
+         if (enter === 'clear'){
+      document.querySelector('.text-js').innerHTML=  "";
+      return;
+         }
+
+
+
+         if (enter === 'Bckspace'|| event.key=== 'Backspace'){
+      document.querySelector('.text-js').innerHTML= document.querySelector('.text-js').innerHTML.slice(0, -1);
+      return;
+         }85
+
+
+
+         document.querySelector('.text-js').innerHTML+=  `${enter}`;
+
+
+    
+
+  }
+
+ </script>
+
+</body>
+</html>

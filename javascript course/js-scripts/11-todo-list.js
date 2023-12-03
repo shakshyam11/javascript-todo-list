@@ -2,11 +2,10 @@
                      duedate : '2022-12-22'},
                      {name :'wash dishes',
                      duedate:'2022-12-22'}*/];
-rendertodolist();
- function rendertodolist(){
-  let todolistHTML ='';
+         rendertodolist();
+         function rendertodolist(){
+         let todolistHTML ='';
  
-
 
  for (let i =0; i < todolist.length; i++){
   const todoObject = todolist[i];
@@ -35,18 +34,16 @@ rendertodolist();
   const name = inputElement.value;
   
    if (!name.trim()){
-      alert('please type something before adding')
+      alert('please type something before adding');
    }else if(!duedate.trim()){
-      alert('plese insert date');
-      
-      
+      alert('please insert date'); 
+    
    }else{todolist.push({//name: name,
       //duedate: duedate
       name,duedate});
    rendertodolist();
-}
+   inputElement.value='';
+   }
        
-  inputElement.value='';
-  
- }
+   }
  

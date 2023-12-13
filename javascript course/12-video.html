@@ -3,19 +3,28 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>web camera</title>
+  <style>
+    
+  </style>
 </head>
 <body>
-  <video id="video" autoplay="ture"; src=""></video>
+  <video   id="video" autoplay="ture"; src=""></video> <br>
+  <button>Takenapshot</button>
   <script>
     let video = document.getElementById('video');
     if(navigator.mediaDevices.getUserMedia){
         navigator.mediaDevices.getUserMedia({video:true}).then(function(s){
           console.log(s);
           video.srcObject=s;
-        });
+        })
+        .catch (function(err){
+          console.log(err)
+            
+          });
+        }
 
-    }else{
+    else{
       console.log('yes');
     }
   </script>

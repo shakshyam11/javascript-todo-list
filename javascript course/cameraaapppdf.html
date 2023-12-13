@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script src="jstopdf.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Camera App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        #app {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        #camera {
+            margin-bottom: 20px;
+        }
+
+        #video {
+            width: 100%;
+            max-width: 400px;
+        }
+
+        #captureBtn {
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        #imageList {
+            text-align: center;
+        }
+
+        #images {
+            list-style: none;
+            padding: 0;
+        }
+
+        #images img {
+            max-width: 100px;
+            margin: 5px;
+        }
+
+        #downloadBtn {
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #2ecc71;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div id="camera">
+            <video id="video" playsinline autoplay></video>
+            <button id="captureBtn">Capture</button>
+        </div>
+        <div id="imageList">
+            <h2>Image List</h2>
+            <ul id="images"></ul>
+            <button id="downloadBtn">Download as PDF</button>
+        </div>
+    </div>
+
+  
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const video = document.getElementById('video');
+            const captureBtn = document.getElementById('captureBtn');
+            const imagesList = document.getElementById('images');
+            const downloadBtn = document.getElementById('downloadBtn');
+
+            let imageIndex = 1;
+
+            // Request access to the camera
+            navigator.mediaDevices.getUserMedia({ video: true })
+                .then((stream) => {
+                    video.srcObject = stream;
+                })
+                .catch((err) => {
+                    console.error('Error accessing camera:', err);
+                });
+
+            // Capture image from video stream
+            captureBtn.addEventListener('click', function () {
+                const canvas = document.createElement('canvas');
+                const context = canvas.getContext('2d');
+                canvas.width = video.videoWidth;
+                canvas.height = video.videoHeight;
+
+                context.drawImage(video, 0, 0, canvas.width, canvas.height);
+
+                const imageUrl = canvas.toDataURL('image/png');
+
+                // Display captured image in the list
+                const imgElement = document.createElement('img');
+                imgElement.src = imageUrl;
+                imgElement.alt = `Captured Image ${imageIndex}`;
+                imagesList.appendChild(imgElement);
+
+                imageIndex++;
+            });
+
+            // Download the list of images as a PDF
+            downloadBtn.addEventListener('click', function () {
+                const pdf = new  jstopdf();
+
+                imagesList.querySelectorAll('img').forEach((img, index) => {
+                    const imgData = img.src;
+
+                    pdf.addImage(imgData, 'PNG', 10, 10 + (index * 80), 80, 60);
+                });
+
+                pdf.save('image_list.pdf');
+            });
+        });
+    </script>
+</body>
+</html>

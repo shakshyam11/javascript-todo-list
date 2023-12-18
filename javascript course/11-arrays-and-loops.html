@@ -104,6 +104,9 @@
 
       for(let i =0; i<nums.length; i++){
         const num = nums[i];
+        if(num ==0){
+          return numsDoubled;
+        }
         numsDoubled.push(num * 2 );
       }
       console.log( numsDoubled); 
@@ -111,6 +114,8 @@
     
     doubleArray([1,1,3]);
     doubleArray([2,2,5]);
+
+
    
     </script>
   </body>

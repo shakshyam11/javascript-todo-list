@@ -1,0 +1,54 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+  //   function array(nums){
+      
+  //     for(let i =0; i<nums.length; i++){
+  //       const num = nums[i];
+  //         if ( num== 'string'){
+  //           console.log(num);
+            
+            
+  //         }else{
+  //           console.log(-1);
+  //         }
+
+  //   }
+
+  // }
+  // array(['hello','mama','string','boy','string']);
+  
+  </script>
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function array(nums) {
+      for (let i = 0; i < nums.length; i++) {
+        const str = nums[i];
+        if (str === 'search') {
+          console.log(`the word you are searching is in ${i+1}`);
+          break;
+        } else if (i === nums.length) {
+          // 'search' not found in the array
+          console.log(-1);
+        }
+      }
+    }
+    array(['hello', 'world','search', 'good','good', 'bad','search']);
+  </script>
+</body>
+</html>

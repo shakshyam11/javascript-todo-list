@@ -49,11 +49,23 @@
           console.log('hello4');
         });
         */
-         
-        settimeout(function(){
+         // time interval for functions to run 
+        setTimeout(function(){
           console.log('timeout');
-        },);
- 
+          console.log('timeout22');
+        },3000);
+        console.log('nextline');
+       ///it also works just same and both are asynchronous 
+       
+        setInterval(function() {
+          console.log('interval');
+
+        },4000);
+        ///this will run first
+        console.log('nextline2');
+        
+
+
 
 
   </script>

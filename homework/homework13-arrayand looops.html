@@ -26,7 +26,9 @@
   
   </script>
 </body>
-</html> -->
+</html> --> 
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -37,18 +39,24 @@
 <body>
   <script>
     function array(nums) {
+      let result = "";
       for (let i = 0; i < nums.length; i++) {
         const str = nums[i];
-        if (str === 'search') {
-          console.log(`the word you are searching is in ${i+1}`);
-          break;
-        } else if (i === nums.length) {
+        if (str === 'egg') {
+           
+           continue;
+        } else {
           // 'search' not found in the array
-          console.log(-1);
+          result = nums[i];
+          console.log(result)
         }
       }
     }
-    array(['hello', 'world','search', 'good','good', 'bad','search']);
+    array(['egg', 'exellent','egg', 'verygood','good', 'bad','egg']);
+    
+
+
+
   </script>
 </body>
 </html>

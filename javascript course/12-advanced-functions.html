@@ -50,20 +50,31 @@
         });
         */
          // time interval for functions to run 
-        setTimeout(function(){
-          console.log('timeout');
-          console.log('timeout22');
-        },3000);
-        console.log('nextline');
-       ///it also works just same and both are asynchronous 
+      //   setTimeout(function(){
+      //     console.log('timeout');
+      //     console.log('timeout22');
+      //   },3000);
+      //   console.log('nextline');
+      //  ///it also works just same and both are asynchronous 
        
-        setInterval(function() {
-          console.log('interval');
+      //   setInterval(function() {
+      //     console.log('interval');
 
-        },4000);
-        ///this will run first
-        console.log('nextline2');
-        
+      //   },4000);
+      //   ///this will run first
+      //   console.log('nextline2');
+
+
+        [
+          'makedinner',
+          'wash dishes',
+          'watch youtube'
+        ].forEach(function(value,index){
+          console.log(value);
+          console.log(index);
+
+
+        });
 
 
 

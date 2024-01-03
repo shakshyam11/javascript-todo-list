@@ -19,32 +19,43 @@
               };
              
             }*/
-      //  windowonload();
+       windowonload();
       let  isautoplaying = false;
       let   intervalid;
       let  autodom  = 'Autoplay';
           document.querySelector('.jsplay').innerHTML=  autodom;
-      
 
-      function autoplay(){
-        if(!isautoplaying){
-        intervalid= setInterval(function(){
-            const playermove =pickComputerMove();
-              playgame(playermove);
-          },1000);
-          isautoplaying =true;
-          let  autodom  = 'Stop Autoplay';
-          document.querySelector('.jsplay').innerHTML=  autodom;
-        }else{
-          clearInterval(intervalid);
-          isautoplaying = false;
-          let  autodom  = 'Autoplay';
-          document.querySelector('.jsplay').innerHTML=  autodom;
+          const buttonelement= document.querySelector('.jsplay');
 
-        }
-       
-      } 
+          function autoplay() {
+            if (!isautoplaying) {
+              intervalid = setInterval(function () {
+                const playermove = pickComputerMove();
+                playgame(playermove);
+              }, 1000);
+              isautoplaying = true;
+              let autodom = 'Stop Autoplay';
+              buttonelement.innerHTML = autodom;
+              buttonelement.classList.add('autoplaystart');
+              buttonelement.classList.remove('autoplay');
 
+              myTimer();
+              
+              
+            } else {
+              clearInterval(intervalid);
+              isautoplaying = false;
+              let autodom = 'Autoplay';
+              buttonelement.innerHTML = autodom;
+              buttonelement.classList.remove('autoplaystart');
+              buttonelement.classList.add('autoplay');
+            }
+          }
+          function myTimer() {
+            const d = new Date();
+            document.getElementById("demo").innerHTML = d.toLocaleTimeString();
+            setTimeout(myTimer, 1000);
+          }
 
       function playgame(playermove) {
         playermoves = playermove;
@@ -101,7 +112,7 @@
 
         document.querySelector(
           ".js-score"
-        ).innerHTML = `wins:${score.wins}, losses :${score.losses},and ties:${score.ties}`;
+        ).innerHTML = `wins:${score.wins}  losses :${score.losses}  and ties:${score.ties}`;
       }
 
       function reset() {
@@ -114,7 +125,7 @@
 
       function pickComputerMove() {
         const randomNumber = Math.random(0, 1);
-        let computermove = "";
+        let computermove = "";                   
 
         if (randomNumber >= 0 && randomNumber < 1 / 3) {
           computermove = "rock";
@@ -128,5 +139,6 @@
       function windowonload(){
         document.querySelector(
           ".js-score"
-        ).innerHTML = `wins:${score.wins}, losses :${score.losses},and ties:${score.ties}`;
+        ).innerHTML = `wins:${score.wins} losses :${score.losses} and ties:${score.ties}`;
       }
+     

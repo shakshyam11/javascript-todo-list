@@ -1,6 +1,8 @@
       let result = "";
       let playermoves = "";
       let computermoves = "";
+      let elapsedTime = 0;
+      let isTimerRunning = false;
 
       let name = localStorage.getItem("name") || undefined; // Retrieve name from localStorage
 
@@ -38,11 +40,14 @@
               buttonelement.innerHTML = autodom;
               buttonelement.classList.add('autoplaystart');
               buttonelement.classList.remove('autoplay');
-
-              myTimer();
               
-              
+              startTimer()
+              myTimer()
+          
             } else {
+              stopTimer()
+              myTimer()
+             
               clearInterval(intervalid);
               isautoplaying = false;
               let autodom = 'Autoplay';
@@ -51,11 +56,39 @@
               buttonelement.classList.add('autoplay');
             }
           }
+
+          function startTimer() {
+            isTimerRunning = true;
+        }
+        
+        function stopTimer() {
+            isTimerRunning = false;
+        }
+
           function myTimer() {
-            const d = new Date();
-            document.getElementById("demo").innerHTML = d.toLocaleTimeString();
-            setTimeout(myTimer, 1000);
+           
+            if (isTimerRunning) {
+              document.getElementById("demo").innerHTML = formatTime(elapsedTime);
+              elapsedTime++;
+          } else {
+            elapsedTime=0
+              document.getElementById("demo").innerHTML = formatTime(elapsedTime);
           }
+          setTimeout(myTimer, 1000);
+        }
+        function formatTime(seconds) {
+          const minutes = Math.floor(seconds / 60);
+          const remainingSeconds = seconds % 60;
+          return `${padZero(minutes)}:${padZero(remainingSeconds)}`;
+        }
+        
+        function padZero(number) {
+          return number < 10 ? `0${number}` : number;
+        }
+
+        // Example of how to use start, stop, and reset functions
+// Start the timer
+startTimer();
 
       function playgame(playermove) {
         playermoves = playermove;

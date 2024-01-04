@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <script src="jstopdf.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Camera App</title>
@@ -60,6 +59,7 @@
             cursor: pointer;
         }
     </style>
+     <script src="imgtopdf.js"></script>
 </head>
 <body>
     <div id="app">
@@ -114,8 +114,9 @@
             });
 
             // Download the list of images as a PDF
-            downloadBtn.addEventListener('click', function () {
-                const pdf = new  jstopdf();
+         // Download the list of images as a PDF
+         downloadBtn.addEventListener('click', function () {
+                const pdf = new jsPDF();  // Corrected the library name
 
                 imagesList.querySelectorAll('img').forEach((img, index) => {
                     const imgData = img.src;
@@ -125,6 +126,7 @@
 
                 pdf.save('image_list.pdf');
             });
+
         });
     </script>
 </body>

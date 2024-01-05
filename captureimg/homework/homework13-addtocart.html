@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <button class="js-addtocart"  onclick="addto();" >add to cart</button>
+  <p class="js-paragraph"></p>
+  <script>
+    let bolen =true;
+
+    function addto(){
+      if(bolen){
+        const letter = 'Added';
+      document.querySelector('.js-paragraph').innerHTML = letter;
+      bolen =false;
+
+
+      }else if(!bolen){
+        setInterval(function () {
+                const letter = '';
+            document.querySelector('.js-paragraph').innerHTML = letter;
+            bolen =true;
+
+            }, 1500);
+
+
+       
+
+      }
+      
+      
+    }
+
+  </script>
+     
+
+</body>
+</html>

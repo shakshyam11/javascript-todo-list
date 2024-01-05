@@ -1,0 +1,36 @@
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>home work</title>
+ </head>
+ <body>
+
+  <script>
+    let name1 = prompt('enter your name ');
+    let name = name1+' sir';
+   let hour1= prompt(' enter your  time from (0 to 12 )');
+   let ampm =prompt('enter am or pm');
+   
+   hour =(`${hour1+ampm}`);
+  if (hour === '0am'||hour === '1am'||hour === '2am'||hour === '3am'||hour === '4am'||hour === '5am'||hour === '6am'||hour === '7am'||hour === '8am'||hour === '9am'||hour === '10am'||hour === '11am'||hour === '12am'){
+    alert('goodmorning '+name);
+  }else if (hour === '0pm'||hour === '1pm'||hour === '2pm'||hour === '3pm'||hour === '4pm'||hour === '5pm'){
+    alert('good afternoon  '+name);
+  }else if(hour === '6pm'||hour === '7pm'){
+    alert('good evening  '+name);
+  }
+  else if (hour === '8pm'||hour === '9pm'||hour === '10pm'||hour === '11pm'||hour === '12pm'){
+    alert('goodnyt  '+name);
+
+  }else {
+    alert('entry format is incorrect');  
+  }
+
+  
+  </script>
+  
+ </body>
+ </html>
+ 

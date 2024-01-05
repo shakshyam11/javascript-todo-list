@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+ 
+</head>
+<body>
+  <button class="js-finished" onclick="finis();"></button>
+  <button class="js-addtocart">addto card</button>
+  <script>
+    
+    
+    let value = 'START';
+let intervalId; // Variable to store the interval ID
+document.querySelector('.js-finished').innerHTML = value;
+let bolen = true;
+
+function finis() {
+    if (bolen) {
+        // Start the interval only if it's not already running
+        if (!intervalId) {
+            intervalId = setInterval(function () {
+                const finisbaby = 'FINISHED';
+                document.querySelector('.js-finished').innerHTML = finisbaby;
+            }, 1000);
+            const finisbaby = 'Loading...';
+                document.querySelector('.js-finished').innerHTML = finisbaby;
+        }
+        bolen = false;
+    } else {
+        // Clear the interval and set the value to 'START'
+        clearInterval(intervalId);
+        const value = 'START';
+        document.querySelector('.js-finished').innerHTML = value;
+        bolen = true;
+        intervalId = null; // Reset the interval ID
+    }
+}
+      
+
+
+  </script>
+  
+</body>
+</html>

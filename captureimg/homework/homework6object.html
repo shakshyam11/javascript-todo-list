@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const product = {
+        name: "basketball",
+        cents: 2095,
+        price: 20,
+      };
+      product["deliverytime"] = "3days";
+      console.log(product);
+
+      let product2 = {
+        name: "basketball",
+        cents: 1900,
+        price: 19,
+      };
+      n;
+
+      function compareprice() {
+        if (product.name == product2.name) {
+          console.log("product is same ");
+          if (product.cents < product2.cents) {
+            console.log("PRODUCT1 IS LESS EXPENSIVE");
+          } else {
+            console.log("PRODUCT 2 IS LESS EXPENSIVE");
+          }
+        } else {
+          console.log("pRODUCT IS NOT MATCH BUT");
+
+          if (product.cents < product2.cents) {
+            console.log("pRODUCT1 IS LESS EXPENSIVE");
+          } else {
+            console.log("PRODUCT 2 IS LESS EXPENSIVE");
+          }
+
+          
+          let stringToRepeat = "Hello, World! ";
+          let repeatedString = "";
+
+          for (let i = 0; i < 3; i++) {
+            repeatedString += stringToRepeat;
+          }
+
+          console.log(repeatedString);
+        }
+      }
+
+      compareprice();
+    </script>
+  </body>
+</html>

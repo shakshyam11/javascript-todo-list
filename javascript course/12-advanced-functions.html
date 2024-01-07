@@ -65,27 +65,48 @@
       //   console.log('nextline2');
 
 
-        // [
-        //   'makedinner',
-        //   'wash dishes',
-        //   'watch youtube'
-        // ].forEach(function(value,index){
-        //   if (value == 'wash dishes'){
-        //     return;
-        //   }
-        //   console.log(value);
-        //   console.log(index);
+        [
+          'makedinner',
+          'wash dishes',
+          'watch youtube'
+        ].forEach( (value,index)=>{
+          if (value == 'wash dishes'){
+            return;
+          }
+          console.log(value);
+          console.log(index);
+        });
 
-
-        // });
-        const add = function(){
-             console.log(2+3);
+        const regularfunction = function(param,param2){
+          console.log('hello');
+          return 5;
         }
+
+
+        const arrowfunction =  (param,param2)=> {
+          console.log('hello');
+          return 5;
+        };
+        arrowfunction();
+
+        const oneparam = param => {
+         console.log(param+1);
+        }
+        oneparam(2);
+
+        const oneline = ()=> 2+3;
+        console.log(oneline())
         
-        for (let i =0; i<2; i++){
-          add();
-        }
-        runtwice(fun)
+        // });
+        // const add = function(){
+        //      console.log(2+3);
+        // }
+        
+        // for (let i =0; i<2; i++){
+        //   add();
+        // }
+        // runtwice(fun)
+        
 
 
 
